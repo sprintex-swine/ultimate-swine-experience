@@ -5,7 +5,7 @@
 ## Download and install
 
 1. Open the [latest release](https://github.com/sprintex-swine/ultimate-swine-experience/releases/latest).
-2. Under **Assets**, download the file named **SwineAddon-<version>-Setup.exe**. For version 0.2.0, this is **SwineAddon-0.2.0-Setup.exe**. You do not need the source-code ZIP or the `.sha256` file to install the app.
+2. Under **Assets**, download the file named **SwineAddon-<version>-Setup.exe**. For version 0.2.1, this is **SwineAddon-0.2.1-Setup.exe**. You do not need the source-code ZIP or the `.sha256` file to install the app.
 3. Run the installer and follow the instructions.
 4. Open **SWINE Addon** from the Windows Start menu, then start your supported SWINE HD game. The addon connects to the game automatically.
 
@@ -22,7 +22,7 @@ See an overview of your recorded team matches:
 - Number of matches and average damage per minute.
 - Average and best **APM** (actions per minute, a measure of how actively you use the controls).
 - Overall **K/D ratio** (enemy units destroyed compared with your own units lost).
-- Average number of rocket and mortar units, excluding the opening minute.
+- Average number of rocket and mortar units, excluding the opening three minutes.
 - Average idle percentage and your highest damage in a single match.
 - Dates and maps for your damage and APM records.
 - A win-rate gauge and a daily chart of wins and losses for your **last seven days with matches**. Days without matches are skipped.
@@ -31,7 +31,9 @@ The dashboard leaves out spectator matches, 1v1 matches and matches with an unce
 
 ### Live statistics and match history — Meccsek
 
-Follow your performance while playing using small on-screen panels, then review saved match and player statistics afterwards. History includes team sizes, match length and win/loss highlighting. You can export statistics to an Excel file and send a statistics summary to the game chat.
+Follow your performance while playing using small on-screen panels, then review saved match and player statistics afterwards. History includes team sizes, match length and win/loss highlighting. Filter all saved matches by date range, map, 1v1 or team format, equal or unequal team sizes, and result. Date filters remain inactive until you choose a date. You can export statistics to an Excel file and send a statistics summary to the game chat.
+
+Move the statistics panel by holding the middle mouse button and dragging it. Left and right clicks pass through that panel to the game.
 
 For on-screen panels, use the game in windowed or borderless windowed mode. Start the addon **before the match begins** so it can capture the full match.
 
@@ -42,6 +44,8 @@ Multiplayer match recording is enabled by default and can be switched off in Set
 Select a recorded match in the history to replay it, or open a `.swr` file someone has sent you. Replay controls let you pause, change playback speed, move through the recording and switch between your side's view, the opponents' view and the whole map.
 
 Replay playback needs a compatible game version and the map used in the recording. Create an empty lobby that you host and follow the app's preparation messages. Seeking backwards reloads the match and advances to the selected point, so it is not always instant. New recordings contain match-duration data; older recordings use an estimate.
+
+If you close the addon while a replay is active, it asks for confirmation. Confirming also closes the game window used by that replay, then exits the addon. The saved replay file is kept.
 
 ### Team setup — Lobby
 
