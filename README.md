@@ -5,7 +5,7 @@
 ## Download and install
 
 1. Open the [latest release](https://github.com/sprintex-swine/ultimate-swine-experience/releases/latest).
-2. Under **Assets**, download the file named **SwineAddon-<version>-Setup.exe**. For version 0.2.2, this is **SwineAddon-0.2.2-Setup.exe**. You do not need the source-code ZIP or the `.sha256` file to install the app.
+2. Under **Assets**, download the file named **SwineAddon-<version>-Setup.exe**. For version 0.2.3, this is **SwineAddon-0.2.3-Setup.exe**. You do not need the source-code ZIP or the `.sha256` file to install the app.
 3. Run the installer and follow the instructions.
 4. Open **SWINE Addon** from the Windows Start menu, then start your supported SWINE HD game. The addon connects to the game automatically.
 
