@@ -5,7 +5,7 @@
 ## Download and install
 
 1. Open the [latest release](https://github.com/sprintex-swine/ultimate-swine-experience/releases/latest).
-2. Under **Assets**, download the file named **SwineAddon-<version>-Setup.exe**. For version 0.2.3, this is **SwineAddon-0.2.3-Setup.exe**. You do not need the source-code ZIP or the `.sha256` file to install the app.
+2. Under **Assets**, download the file named **SwineAddon-<version>-Setup.exe**. For version 0.2.4, this is **SwineAddon-0.2.4-Setup.exe**. You do not need the source-code ZIP or the `.sha256` file to install the app.
 3. Run the installer and follow the instructions.
 4. Open **SWINE Addon** from the Windows Start menu, then start your supported SWINE HD game. The addon connects to the game automatically.
 
@@ -60,6 +60,14 @@ Choose between **Classic** and **Team Player** bots. The addon launches separate
 ### Connection troubleshooting — Lag Elemző
 
 The Lag Analyzer reads the game's log and presents connection-related events in a table. It can help you investigate lag and see which players are associated with packet re-request events. These counts are diagnostic clues, not a direct packet-loss percentage or proof that one player caused the lag.
+
+### Your own player colors — Színek
+
+Replace any of the game's 13 player colors with a color you prefer. Click a color square beneath the pencil icon to edit it, and use the rotating rabbit and pig unit previews to see the result. Changes appear live; **OK** saves your choice and **Cancel** restores the previous color.
+
+The checkbox lets you apply your choices only to your own player, or to all players you see. Changes affect the lobby, unit paint and the in-game scoreboard **on your computer only**. Other players still see their own colors, and the minimap stays unchanged. Your choices are remembered when you restart the app.
+
+The previews use animations from your installed game. The addon finds the game through its running process, or uses the game path saved on the **Botok** tab. The actual match lighting can change how a color looks on a unit.
 
 ## Keeping the app up to date
 
