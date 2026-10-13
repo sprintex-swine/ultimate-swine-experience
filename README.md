@@ -5,7 +5,7 @@
 ## Download and install
 
 1. Open the [latest release](https://github.com/sprintex-swine/ultimate-swine-experience/releases/latest).
-2. Under **Assets**, download the file named **SwineAddon-<version>-Setup.exe**. For version 0.2.4, this is **SwineAddon-0.2.4-Setup.exe**. You do not need the source-code ZIP or the `.sha256` file to install the app.
+2. Under **Assets**, download the file named **SwineAddon-<version>-Setup.exe**. You do not need the source-code ZIP or the `.sha256` file to install the app.
 3. Run the installer and follow the instructions.
 4. Open **SWINE Addon** from the Windows Start menu, then start your supported SWINE HD game. The addon connects to the game automatically.
 
@@ -33,6 +33,8 @@ The dashboard leaves out spectator matches, 1v1 matches and matches with an unce
 
 Follow your performance while playing using small on-screen panels, then review saved match and player statistics afterwards. History includes team sizes, match length and win/loss highlighting. Filter all saved matches by date range, map, 1v1 or team format, equal or unequal team sizes, and result. Date filters remain inactive until you choose a date. You can export statistics to an Excel file and send a statistics summary to the game chat.
 
+The chart icon above match deletion opens two graphs: each team's total live rocket launchers and mortars, and their combined remaining HP. Team player lists appear above the charts. New matches save these values automatically every five game seconds; older matches without these measurements show an explanation. Graph data is kept with local match statistics and is not included in shared `.swr` files.
+
 Move the statistics panel by holding the middle mouse button and dragging it. Left and right clicks pass through that panel to the game.
 
 For on-screen panels, use the game in windowed or borderless windowed mode. Start the addon **before the match begins** so it can capture the full match.
@@ -43,7 +45,7 @@ Multiplayer match recording is enabled by default and can be switched off in Set
 
 Select a recorded match in the history to replay it, or open a `.swr` file someone has sent you. Replay controls let you pause, change playback speed, move through the recording and switch between your side's view, the opponents' view and the whole map.
 
-Replay playback needs a compatible game version and the map used in the recording. Create an empty lobby that you host and follow the app's preparation messages. Seeking backwards reloads the match and advances to the selected point, so it is not always instant. New recordings contain match-duration data; older recordings use an estimate.
+Replay playback opens a separate game window and starts the recorded match automatically. You need a compatible game version and the map used in the recording. During playback, the camera zoom limit is 50, allowing a wider view. Seeking backwards reloads the match and advances to the selected point, so it is not always instant. New recordings contain match-duration data; older recordings use an estimate.
 
 If you close the addon while a replay is active, it asks for confirmation. Confirming also closes the game window used by that replay, then exits the addon. The saved replay file is kept.
 
@@ -51,11 +53,15 @@ If you close the addon while a replay is active, it asks for confirmation. Confi
 
 When you host a lobby, the addon helps you arrange teams using player ratings, choose a map and select starting positions. Ratings are editable directly in the player table. Missing ratings are highlighted, and team suggestions become available once everyone has a rating.
 
+Use the **Néző** (Spectator) column to exclude someone who is only watching from team suggestions and rating calculations. Their existing in-game team is preserved when applying a team setup. If you enable **ELO rendszer vezetése** in Settings, eligible recorded team matches update your local ratings, and team suggestions show the expected rating change for a win and a loss.
+
 These are ratings you enter for balancing teams, not an official online ranking. The controls remain disabled until you are the host.
 
 ### Built-in bots — Botok
 
-Choose between **Classic** and **Team Player** bots. The addon launches separate game windows for them; you join those windows to the lobby and select the Bot army. The bot components are included, so no separate developer software is needed.
+Choose between **Classic** and **Team Player** bots. Enter a lobby with your main game client, then launch bots from the addon. Each bot opens its own game window, joins that client's host, selects your saved **Bot** army, and becomes ready when the host locks the settings. This works both when you host and when you are visiting another lobby. Names are **Bot**, **Bot 2**, **Bot 3**, and so on.
+
+Save an army named **Bot** in the game beforehand and leave enough lobby slots open. The bot components are included, so no separate developer software is needed.
 
 ### Connection troubleshooting — Lag Elemző
 
@@ -73,6 +79,8 @@ The previews use animations from your installed game. The addon finds the game t
 
 Open **Beállítások → Frissítések keresése** (Settings → Check for updates). If a newer release is available, the app asks whether you want to install it. After you confirm, it downloads and checks the installer, closes the app, updates it and starts it again. A progress window explains what is happening.
 
+The **Change Log** button beside Check for updates opens short version summaries, with the newest first and versions back to 0.2.0.
+
 Finish any match, replay or active bot session before updating. You do not need to uninstall the old version first. You can also download the latest installer and install it over your existing installation.
 
 ## Where are my matches stored?
@@ -89,7 +97,8 @@ You can paste this path into the address bar of File Explorer. Replay files are 
 
 - Make sure the addon is running before you start a match.
 - Check that the game version is supported. The addon cannot connect to every modified game executable.
-- If a replay will not start, check that its map is installed and that you are hosting an empty lobby.
+- If a replay will not start, check that its map is installed and that the game path on the **Botok** tab is correct.
+- Errors and blocked actions display popup explanations. Closing the addon also shows saving and shutdown progress, including background tasks that take longer than expected.
 - For a problem with the app, [open an issue](https://github.com/sprintex-swine/ultimate-swine-experience/issues) and describe what you were doing, your addon version and any error message. Avoid sharing private information in public logs or screenshots.
 
 This repository distributes the Windows installer and release information. Always download installers from the [Releases page](https://github.com/sprintex-swine/ultimate-swine-experience/releases), where the current version is published.
