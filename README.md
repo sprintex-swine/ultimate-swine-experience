@@ -35,6 +35,8 @@ Follow your performance while playing using small on-screen panels, then review 
 
 The chart icon above match deletion opens two graphs: each team's total live rocket launchers and mortars, and their combined remaining HP. Team player lists appear above the charts. New matches save these values automatically every five game seconds; older matches without these measurements show an explanation. Graph data is kept with local match statistics and is not included in shared `.swr` files.
 
+The folder icon directly above match deletion opens your replay folder in File Explorer.
+
 Move the statistics panel by holding the middle mouse button and dragging it. Left and right clicks pass through that panel to the game.
 
 For on-screen panels, use the game in windowed or borderless windowed mode. Start the addon **before the match begins** so it can capture the full match.
@@ -62,6 +64,8 @@ These are ratings you enter for balancing teams, not an official online ranking.
 Choose between **Classic** and **Team Player** bots. Enter a lobby with your main game client, then launch bots from the addon. Each bot opens its own game window, joins that client's host, selects your saved **Bot** army, and becomes ready when the host locks the settings. This works both when you host and when you are visiting another lobby. Names are **Bot**, **Bot 2**, **Bot 3**, and so on.
 
 Save an army named **Bot** in the game beforehand and leave enough lobby slots open. The bot components are included, so no separate developer software is needed.
+
+Both bots use repair trailers in their movement and repair decisions. Fuel and ammunition trailers do not affect movement decisions; enemy ones are attacked only as a last priority within firing range, without chasing them. Friendly trailers are never targets.
 
 ### Connection troubleshooting — Lag Elemző
 
