@@ -61,11 +61,13 @@ These are ratings you enter for balancing teams, not an official online ranking.
 
 ### Built-in bots — Botok
 
-Choose between **Classic** and **Team Player** bots. Enter a lobby with your main game client, then launch bots from the addon. Each bot opens its own game window, joins that client's host, selects your saved **Bot** army, and becomes ready when the host locks the settings. This works both when you host and when you are visiting another lobby. Names are **Bot**, **Bot 2**, **Bot 3**, and so on.
+Choose between **Classic**, **Team Player** and **Guardian** bots. Enter a lobby with your main game client, then launch bots from the addon. Each bot opens its own game window, joins that client's host, selects your saved **Bot** army, and becomes ready when the host locks the settings. This works both when you host and when you are visiting another lobby. Names are **Bot**, **Bot 2**, **Bot 3**, and so on.
+
+Guardian uses terrain-aware movement, predictive mortar fire and coordinated repairs. In a 9000-SP lobby it prepares its own army of 6 mortars, 4 rocket launchers, 2 towing vehicles and 2 repair trailers through the game's normal purchase system. A saved **Bot** army is still required. Its rocket launchers withdraw below 60% health and can return to combat at 90%.
 
 Save an army named **Bot** in the game beforehand and leave enough lobby slots open. The bot components are included, so no separate developer software is needed.
 
-Both bots use repair trailers in their movement and repair decisions. Fuel and ammunition trailers do not affect movement decisions; enemy ones are attacked only as a last priority within firing range, without chasing them. Friendly trailers are never targets.
+All three bots use repair trailers in their movement and repair decisions. Fuel and ammunition trailers do not affect movement decisions; enemy ones are attacked only as a last priority within firing range, without chasing them. Friendly trailers are never targets.
 
 ### Connection troubleshooting — Lag Elemző
 
@@ -81,7 +83,7 @@ The previews use animations from your installed game. The addon finds the game t
 
 ## Keeping the app up to date
 
-Open **Beállítások → Frissítések keresése** (Settings → Check for updates). If a newer release is available, the app asks whether you want to install it. After you confirm, it downloads and checks the installer, closes the app, updates it and starts it again. A progress window explains what is happening.
+The app checks for updates at startup and every hour. When a newer stable release is available, a yellow exclamation icon appears on the **Beállítások** (Settings) tab, and a highlighted notice shows the available version. Click **Frissítés telepítése** (Install update) to start updating. You can also check manually at any time with **Frissítések keresése** (Check for updates). After you confirm, the app downloads and checks the installer, closes, updates and starts again. A progress window explains what is happening.
 
 The **Change Log** button beside Check for updates opens short version summaries, with the newest first and versions back to 0.2.0.
 
