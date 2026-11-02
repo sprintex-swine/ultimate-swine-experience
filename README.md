@@ -29,6 +29,8 @@ See an overview of your recorded team matches:
 
 The dashboard leaves out spectator matches, 1v1 matches and matches with an uncertain result. Its win/loss figures use the addon's recorded result assessment and may not always match an official game result. Older matches may not contain every statistic; missing measurements are not treated as zero.
 
+When **ELO rendszer vezetése** is enabled, the **Csak rangsorolt meccsek** (Ranked matches only) checkbox filters every dashboard statistic and chart to eligible matches with an actual nonzero ELO change. It works together with the time-period filter. Turning ELO tracking off hides the checkbox and stops applying this filter.
+
 ### Live statistics and match history — Meccsek
 
 Follow your performance while playing using small on-screen panels, then review saved match and player statistics afterwards. History includes team sizes, match length and win/loss highlighting. Filter all saved matches by date range, map, 1v1 or team format, equal or unequal team sizes, and result. Date filters remain inactive until you choose a date. You can export statistics to an Excel file and send a statistics summary to the game chat.
@@ -47,17 +49,17 @@ Multiplayer match recording is enabled by default and can be switched off in Set
 
 Select a recorded match in the history to replay it, or open a `.swr` file someone has sent you. Replay controls let you pause, change playback speed, move through the recording and switch between your side's view, the opponents' view and the whole map.
 
-Replay playback opens a separate game window and starts the recorded match automatically. You need a compatible game version and the map used in the recording. During playback, the camera zoom limit is 50, allowing a wider view. Seeking backwards reloads the match and advances to the selected point, so it is not always instant. New recordings contain match-duration data; older recordings use an estimate.
+Replay playback opens a separate game window and starts the recorded match automatically. You need a compatible game version and the map used in the recording. During playback, the camera zoom limit is 50, allowing a wider view. Seeking computes the target state without rendering the skipped part or accumulating its effects and sounds. Backward seeking reloads the original match and then computes forward. Progress is shown, seeking can be cancelled after loading, and playback automatically resumes at the selected speed on arrival, even if it was paused before seeking. New recordings seek by the actual game clock at 50 ms resolution; older recordings use an estimated time. You can also seek backwards from the end of the recording.
 
 If you close the addon while a replay is active, it asks for confirmation. Confirming also closes the game window used by that replay, then exits the addon. The saved replay file is kept.
 
 ### Team setup — Lobby
 
-When you host a lobby, the addon helps you arrange teams using player ratings, choose a map and select starting positions. Ratings are editable directly in the player table. Missing ratings are highlighted, and team suggestions become available once everyone has a rating.
+The Lobby tab shows players both when you host and when you join someone else's lobby. Local ratings are editable directly in the player table, including for newly joined players. Missing ratings are highlighted, and team suggestions become available once everyone has a rating. When hosting, you can also apply team setups, choose a map and select starting positions.
 
 Use the **Néző** (Spectator) column to exclude someone who is only watching from team suggestions and rating calculations. Their existing in-game team is preserved when applying a team setup. If you enable **ELO rendszer vezetése** in Settings, eligible recorded team matches update your local ratings, and team suggestions show the expected rating change for a win and a loss.
 
-These are ratings you enter for balancing teams, not an official online ranking. The controls remain disabled until you are the host.
+These are local ratings you enter for balancing teams, not an official online ranking. Applying teams, maps and starting positions remains restricted to the host.
 
 ### Built-in bots — Botok
 
@@ -65,13 +67,21 @@ Choose between **Classic**, **Team Player** and **Guardian** bots. Enter a lobby
 
 Guardian uses terrain-aware movement, predictive mortar fire and coordinated repairs. In a 9000-SP lobby it prepares its own army of 6 mortars, 4 rocket launchers, 2 towing vehicles and 2 repair trailers through the game's normal purchase system. A saved **Bot** army is still required. Its rocket launchers withdraw below 60% health and can return to combat at 90%.
 
-Save an army named **Bot** in the game beforehand and leave enough lobby slots open. The bot components are included, so no separate developer software is needed.
+Set the game's EXE path under **Beállítások → Játék EXE útvonala** (Settings → Game EXE path). A yellow warning appears if the file is missing or the path does not point to an EXE file. The saved path is shared by bots and replay playback. Save an army named **Bot** in the game beforehand and leave enough lobby slots open. The bot components are included, so no separate developer software is needed.
 
 All three bots use repair trailers in their movement and repair decisions. Fuel and ammunition trailers do not affect movement decisions; enemy ones are attacked only as a last priority within firing range, without chasing them. Friendly trailers are never targets.
 
 ### Connection troubleshooting — Lag Elemző
 
-The Lag Analyzer reads the game's log and presents connection-related events in a table. It can help you investigate lag and see which players are associated with packet re-request events. These counts are diagnostic clues, not a direct packet-loss percentage or proof that one player caused the lag.
+The main figures compare **elapsed real time** with **the game clock's progress** and show how far the game fell behind, in time and as a percentage of real time. Later catch-up reduces the difference. Both clocks cover the same observed portion of the match, including pauses; lobby and loading time are excluded. Temporary sampling gaps do not discard game-clock progress. If the addon joins mid-match, only the observed portion is measured.
+
+The Lag Analyzer reads the connected game's command buffers, real-time simulation schedule and network counters directly. It measures wall-clock time when an attempted, due simulation step cannot run because player commands are missing. Normal buffering between simulation steps is excluded, even if the next commands have not arrived yet. Per-match views show time stopped waiting for each player's data, stall counts and longest stalls, native ping and its variation, retransmission ratios, send queues, simulation speed and FPS. A timeline shows recent stops.
+
+Measurements are sampled at the actual resolution displayed in the tab (typically around 10–20 ms); shorter stalls can be missed. Pauses, sampling gaps and background rendering are identified separately. Overlapping player waits are counted once in the total waiting time. Waiting for a player's data does not prove that player caused the problem; indirect connections do not have an attributable direct ping.
+
+Diagnostics are saved with each match in the local database and expire after **72 hours**. Cleanup runs at startup and while the app is open; expired measurements are excluded from history immediately. Regular match statistics and replay files are preserved. Recording starts when the addon observes the live match; historical replays do not generate live network diagnostics.
+
+Older buffer-wait measurements cannot be converted into real stall durations. These show an explanation and unknown stall times; their network statistics remain available. Old and new stall counters are never combined.
 
 ### Your own player colors — Színek
 
@@ -79,7 +89,7 @@ Replace any of the game's 13 player colors with a color you prefer. Click a colo
 
 The checkbox lets you apply your choices only to your own player, or to all players you see. Changes affect the lobby, unit paint and the in-game scoreboard **on your computer only**. Other players still see their own colors, and the minimap stays unchanged. Your choices are remembered when you restart the app.
 
-The previews use animations from your installed game. The addon finds the game through its running process, or uses the game path saved on the **Botok** tab. The actual match lighting can change how a color looks on a unit.
+The previews use animations from your installed game. The addon finds the game through its running process, or uses the game path saved on the **Beállítások** tab. The actual match lighting can change how a color looks on a unit.
 
 ## Keeping the app up to date
 
@@ -103,7 +113,7 @@ You can paste this path into the address bar of File Explorer. Replay files are 
 
 - Make sure the addon is running before you start a match.
 - Check that the game version is supported. The addon cannot connect to every modified game executable.
-- If a replay will not start, check that its map is installed and that the game path on the **Botok** tab is correct.
+- If a replay will not start, check that its map is installed and that the game path on the **Beállítások** tab is correct.
 - Errors and blocked actions display popup explanations. Closing the addon also shows saving and shutdown progress, including background tasks that take longer than expected.
 - For a problem with the app, [open an issue](https://github.com/sprintex-swine/ultimate-swine-experience/issues) and describe what you were doing, your addon version and any error message. Avoid sharing private information in public logs or screenshots.
 
