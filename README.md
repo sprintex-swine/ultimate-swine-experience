@@ -35,6 +35,12 @@ When **ELO rendszer vezetése** is enabled, the **Csak rangsorolt meccsek** (Ran
 
 Follow your performance while playing using small on-screen panels, then review saved match and player statistics afterwards. History includes team sizes, match length and win/loss highlighting. Filter all saved matches by date range, map, 1v1 or team format, equal or unequal team sizes, and result. Date filters remain inactive until you choose a date. You can export statistics to an Excel file and send a statistics summary to the game chat.
 
+The in-game panel shows full-match **APM** and **CPM** averages side by side with one decimal place. CPM counts network gameplay orders, once per group command, excluding selection and camera controls. It uses game time, so pauses and replay speed do not distort it. Each counter can be hidden separately in Settings. CPM is saved per player, appears in the match table and Excel export, and is omitted from chat summaries.
+
+Idle measurements allow one second of inactivity before a unit becomes idle; a new command clears idle immediately. Brief stops while following a valid movement order are excluded. The upper match summary displays eight complete player rows.
+
+If a completed match has the wrong result, click its pencil button and select the winning team. Saving updates affected ELO ratings; the original recorded result can be restored.
+
 The chart icon above match deletion opens two graphs: each team's total live rocket launchers and mortars, and their combined remaining HP. Team player lists appear above the charts. New matches save these values automatically every five game seconds; older matches without these measurements show an explanation. Graph data is kept with local match statistics and is not included in shared `.swr` files.
 
 The folder icon directly above match deletion opens your replay folder in File Explorer.
@@ -61,6 +67,8 @@ Use the **Néző** (Spectator) column to exclude someone who is only watching fr
 
 These are local ratings you enter for balancing teams, not an official online ranking. Applying teams, maps and starting positions remains restricted to the host.
 
+The ELO ranking includes each player's count of matches with an ELO change. Its **Ma** (Today) change runs from **03:00 to 03:00 local time**: matches after midnight and before 03:00 remain with the previous evening. Matches belong to a day by their finish time.
+
 ### Built-in bots — Botok
 
 Choose between **Classic**, **Team Player** and **Guardian** bots. Enter a lobby with your main game client, then launch bots from the addon. Each bot opens its own game window, joins that client's host, selects your saved **Bot** army, and becomes ready when the host locks the settings. This works both when you host and when you are visiting another lobby. Names are **Bot**, **Bot 2**, **Bot 3**, and so on.
@@ -74,6 +82,8 @@ All three bots use repair trailers in their movement and repair decisions. Fuel 
 ### Connection troubleshooting — Lag Elemző
 
 The main figures compare **elapsed real time** with **the game clock's progress** and show how far the game fell behind, in time and as a percentage of real time. Later catch-up reduces the difference. Both clocks cover the same observed portion of the match, including pauses; lobby and loading time are excluded. Temporary sampling gaps do not discard game-clock progress. If the addon joins mid-match, only the observed portion is measured.
+
+Measurement stops at the match result; time spent on the post-match results screen does not increase the reported slowdown.
 
 The Lag Analyzer reads the connected game's command buffers, real-time simulation schedule and network counters directly. It measures wall-clock time when an attempted, due simulation step cannot run because player commands are missing. Normal buffering between simulation steps is excluded, even if the next commands have not arrived yet. Per-match views show time stopped waiting for each player's data, stall counts and longest stalls, native ping and its variation, retransmission ratios, send queues, simulation speed and FPS. A timeline shows recent stops.
 
